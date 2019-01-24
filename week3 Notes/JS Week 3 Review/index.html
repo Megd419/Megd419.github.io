@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+	<head>
+		<title>blablbalb</title>
+		<style type="text/css">
+			*{font-family:arial;}
+			input{margin: 6px 0 12px 0;}
+			h5{margin:0px;}
+			.border{border:solid 1px black;width:300px; min-height:100%;}
+			.right{float:right;}
+			.left{float:left;}
+			html, body{height:100%;margin:0;padding:0;}
+		
+			.hidden{display:none;}
+			#dark{background-color:rgba(0,0,0,.5);min-height:100%;position:absolute;z-index:1;width:100%;transition:all 1s;}
+		</style>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+	<section class="border left">
+		<form>
+			<div>
+				<h5>First Name</h5>
+				<input type="text" placeholder="ex:DJ" name="firstName" />
+			</div>
+			
+			<div>
+				<h5>Last Name</h5>
+				<input type="text" placeholder="ex:Tanner" name="lastName" />
+			</div>
+			
+			<div>
+				<input type="button" id="submit" value="submit" />
+			</div>
+		</form>
+		</section>
+		<section class="border right" id="output">
+			
+		</section>
+		
+		<section id="dark" class="hidden">
+		</section>
+	</body>
+</html>
