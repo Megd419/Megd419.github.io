@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //VARIABLES
+        var a = "words";
+        var b = 10;
+        var c = true;
+
+        console.log("a:" + typeof a);
+        console.log("b:" + typeof b);
+        console.log("c:" + typeof c);
+
+        //FUNCTIONS
+         function sum(num1, num2)
+        {
+            return num1 + num2;
+        }
+
+        var answer = sum(5, 2);
+        console.log("5 + 2 = " + answer);
+
+        //LOOPS AND ARRAYS
+        //FIZZ BUZZ
+        var myArray = [];
+
+        for (var i = 0; i < 100; i++)
+        {
+            myArray[i] = {index: i + 1 , label: undefined};
+        
+        if (myArray[i].index % 2 === 0 && myArray[i].index % 3 === 0)
+            {
+                myArray[i].label = "fizz buzz";
+            } 
+        else if (myArray[i].index % 2 === 0)
+            {
+                myArray[i].label = "fizz";
+                //console.log(myArray[i]);
+            }
+        else if (myArray[i].index % 3 === 0)
+            {
+                myArray[i].label = "buzz";   
+            }
+        }
+
+        for (var i = 0; i < myArray.length; i++)
+        {
+            for(value in myArray[i])
+            {
+                console.log(myArray[i][value]);
+            }
+        }
+    
+    </script>
+</body>
+</html>
