@@ -24,15 +24,17 @@ inputs[i].addEventListener('blur', function(e){
         inputLabel[i].setAttribute("class","ok");
 
         submitInput.addEventListener('click', function(e){
-            if (document.querySelector('input[label="Email"]').value === 'input[label="Confirm Email"]').value)
-            {
-                
-            }
-        
+            if (this.value != "" &&
+                document.querySelector('input[id="email"]').value === document.querySelector('input[id="confirm-email"]').value)
+             {
+                 document.getElementById('confirmation').style.display = "block";
+                 document.getElementById("confirmation").innerHTML = "Hello";
+             }
+         
+ })//submitInput.addEventListener CLOSE
     }
     
-
-})//submitInput.addEventListener CLOSE
+    
 })//inputs[i].addEventListener CLOSE
 } //for loop CLOSE
 })//window.addEventListener CLOSE
