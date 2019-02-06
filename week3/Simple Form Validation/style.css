@@ -21,6 +21,6 @@
 	background-color: #aaa;
 	border: 1px solid black;
 	padding: 10px;
-	visibility: hidden;
+	display:none;
 }
 

@@ -11,7 +11,7 @@ var submitInput = document.querySelector('input[value="submit"]');
 for (let i = 0; i < inputs.length; i++) {
 inputs[i].addEventListener('blur', function(e){
     e.preventDefault(); 
-       console.log(inputError[i]);
+
     if( this.value === "")
     { 
         inputError[i].innerHTML = "*";
@@ -20,10 +20,19 @@ inputs[i].addEventListener('blur', function(e){
     }
     else
     {
-        console.log(inputError[i]);
         inputError[i].innerHTML = "";
+        inputLabel[i].setAttribute("class","ok");
+
+        submitInput.addEventListener('click', function(e){
+            if (document.querySelector('input[label="Email"]').value === 'input[label="Confirm Email"]').value)
+            {
+                
+            }
+        
     }
     
+
+})//submitInput.addEventListener CLOSE
 })//inputs[i].addEventListener CLOSE
 } //for loop CLOSE
 })//window.addEventListener CLOSE
