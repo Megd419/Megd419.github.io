@@ -61,9 +61,7 @@ submitInput.addEventListener("click", function(e){
     document.querySelector('#form').style.display = "none";
     document.querySelector('#confirmation').style.display = "block";
 
-   
-
-   people.push({"#first-name":inputs[0].value, "#last-name":inputs[1].value, "#email":inputs[3].value, "#phone":inputs[4].value});
+    people.push({"#first-name":inputs[0].value, "#last-name":inputs[1].value, "#email":inputs[3].value, "#phone":inputs[4].value});
     console.log(people);
 		
 		var str = "";
@@ -73,6 +71,7 @@ submitInput.addEventListener("click", function(e){
 			{
 				str+=people[i][value];
                 str+=" ";
+                str+="<br>";
             }
             str+= "<br>";
         }
