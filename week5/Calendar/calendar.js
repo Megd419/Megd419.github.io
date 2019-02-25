@@ -31,19 +31,46 @@ function showCalendar (mth, yr) {
     var firstDayOfWeek = d.getDay();
 
     /* this is where you'll generate the grid, for now I will just show first day of week */
-   document.querySelector("results") ****INCORRECT
+   var str = " ";
 
-    var str = "<ul>";
+   str += "<div class='row'>";
+    for (i = 1; i <= numberOfDaysInMonth + firstDayOfWeek; i++)
+        {
+            if ((i-1) % 7 == 0 && i > 0)
+            {
+                str += "</div>";
+                str += "<div class='row'>";
+                str += "<div id='" + i + "' class='day'>";
+
+                if (i - firstDayOfWeek > 0)
+                {               
+                    str += i - firstDayOfWeek; 
+                }
+
+                str += "</div>";
+                
+            }
+            else{
+                str += "<div id='" + i + "' class='day'>";
+
+                if (i - firstDayOfWeek > 0)
+                {               
+                    str += i - firstDayOfWeek; 
+                }
+
+                str += "</div>";
+            }
+        }
+    
+    str += "</div>";
+
+    str += "<ul>";
     str += "<li>Number of days in the month: " + numberOfDaysInMonth + "</li>";
     str += "<li>First day of the week: " + firstDayOfWeek + " (" + daysOfTheWeek[firstDayOfWeek] + ")</li>";
 
     str += "</ul>";
-      
     
+    console.log(str);
     $("#results").html(str);
-     
-    
-    
-}
 
-
+    }
