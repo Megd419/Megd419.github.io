@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var words = ["rock", "paper", "scissors"]
+
+        var me = Math.floor(Math.random()*2.9);
+        var cpu = Math.floor(Math.random()*2.9);
+        
+        
+        
+        /*
+        switch(me)
+        {
+            case 0:
+
+            break;
+
+            case 1:
+
+            break;
+
+            case 2:
+
+            break;
+        }
+        */
+        var outcome = [
+            ["tie", "lose", "win"],
+            ["win", "tie", "lose"],
+            ["lose", "win", "tie"]
+        ]    
+
+        console.log(`me:${words[me]} | cpu:${words[cpu]}`)
+        console.log(outcome[me][cpu])
+
+    </script>
+</body>
+</html>

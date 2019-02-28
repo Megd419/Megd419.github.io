@@ -72,5 +72,26 @@ function showCalendar (mth, yr) {
     
     console.log(str);
     $("#results").html(str);
-
     }
+
+    window.addEventListener("load", function(e){
+    var avail = document.querySelectorAll(".day")
+  
+    for(var i=0; i < avail.length; i++)
+        {
+            avail[i].addEventListener("click", function selectDay(e)
+            {
+                console.log(this.style.backgroundColor);
+            /*
+                if (this.backgroundColor == "");
+                {
+                    this.backgroundColor == "";
+                }            
+            */
+            });
+        }    
+        
+    });
+
+
+    

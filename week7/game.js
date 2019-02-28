@@ -62,7 +62,7 @@ function main()
 {
     ctx.clearRect(0,0,c.width,c.height);
     
-    states[currentState]();
+    states[currentState](); //value of drop down
     
     setTimeout(main, 1000/60);
 }
