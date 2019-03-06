@@ -80,23 +80,37 @@ function showCalendar (mth, yr) {
     for(var i=0; i < avail.length; i++)
         {
             avail[i].addEventListener("click", function selectDay(e)
-            {
-                console.log(this.style.backgroundColor);
-            
-                if (this.style.backgroundColor = " ")
+            {            
+                if (this.style.backgroundColor == '')
                 {
                     this.style.backgroundColor = "green";
                 }            
-         
-                else if (this.style.backgroundColor = "green")
+                
+                else if (this.style.backgroundColor == "green")
                 {
                     this.style.backgroundColor = "red";
-                }            
-
-                console.log(this.style.backgroundColor);
+                }
+               
+                else
+                {
+                    this.style.backgroundColor = '';
+                }
             
             });
-        }    
+        }
+        
+    document.getElementById("yes").addEventListener("click", function()
+    {
+        var obj = ".day";
+        obj.style.backgroundColor , "green";
+       // document.querySelectorAll(".day").style.backgroundColor = "green";
+        
+    })
+
+    document.getElementById("no").addEventListener("click", function() 
+    {
+        document.querySelectorAll(".day").style.backgroundColor = "red";
+    })
         
     });
 
