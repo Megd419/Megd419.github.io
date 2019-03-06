@@ -64,7 +64,7 @@ function showCalendar (mth, yr) {
     
     str += "</div>";
 
-    str += "<ul>";
+    str += "<br><br><br><ul>";
     str += "<li>Number of days in the month: " + numberOfDaysInMonth + "</li>";
     str += "<li>First day of the week: " + firstDayOfWeek + " (" + daysOfTheWeek[firstDayOfWeek] + ")</li>";
 
@@ -82,12 +82,19 @@ function showCalendar (mth, yr) {
             avail[i].addEventListener("click", function selectDay(e)
             {
                 console.log(this.style.backgroundColor);
-            /*
-                if (this.backgroundColor == "");
+            
+                if (this.style.backgroundColor = " ")
                 {
-                    this.backgroundColor == "";
+                    this.style.backgroundColor = "green";
                 }            
-            */
+         
+                else if (this.style.backgroundColor = "green")
+                {
+                    this.style.backgroundColor = "red";
+                }            
+
+                console.log(this.style.backgroundColor);
+            
             });
         }    
         
