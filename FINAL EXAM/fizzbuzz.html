@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    var myarray = [];
+
+    for (i = 0; i < 100; i++)
+    {
+        myarray[i] = i + 1;
+        
+        if (myarray[i] % 2 == 0 && myarray[i] % 3 == 0)
+       {
+           myarray[i] = "fizz buzz";
+       }
+
+        else if (myarray[i] % 2 == 0)
+        {
+            myarray[i] = "fizz";
+        }
+
+        else if (myarray[i] % 3 == 0)
+       {
+           myarray[i] = "buzz";
+       }
+
+       
+        console.log(myarray[i]);
+    }
+
+</script>
+</html>

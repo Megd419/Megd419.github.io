@@ -88,7 +88,8 @@
 </body>
 </html>
 
-<script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">	</script>
+<script type="text/javascript">
     fetch('http://ict.neit.edu/evanrense/salaries.php')
     .then(function(response) {
         return response.json();
@@ -97,6 +98,22 @@
     console.log((myJson));
   });
 
+var jobs = JSON.parse(myJson);
+
+console.log(jobs);
+
+var fname = document.querySelector("first-name")
+var output = document.querySelector("output")
+/*
+for (i=0; i < myJson[i].length; i++)
+{
+	console.log(name.first);
+/*	if (name.first == fname)
+{
+	output.innerHTML = myJson[i];
+}
+*/
+//}
     
 
 </script>
