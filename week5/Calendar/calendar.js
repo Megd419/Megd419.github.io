@@ -13,7 +13,48 @@ $(document).ready(function(){
 
         $("#month,#year").change(function(e) {
             showCalendar ($("#month").val(), $("#year").val());
-        });
+            
+        var days = document.querySelectorAll(".day")
+  
+    for(var i=0; i < days.length; i++)
+        {
+            days[i].addEventListener("click", function selectDay(e)
+            {            
+                if (this.style.backgroundColor == '')
+                {
+                    this.style.backgroundColor = "green";
+                }            
+                
+                else if (this.style.backgroundColor == "green")
+                {
+                    this.style.backgroundColor = "red";
+                }
+               
+                else
+                {
+                    this.style.backgroundColor = '';
+                }
+            
+            });
+        }
+
+    document.getElementById("yes").addEventListener("click", function()
+    {
+        for(var i=0; i < days.length; i++)
+        {
+            days[i].style.backgroundColor = "green"; 
+        }       
+    })
+
+    document.getElementById("no").addEventListener("click", function() 
+    {
+        for(var i=0; i < days.length; i++)
+        {
+            days[i].style.backgroundColor = "red";
+        }
+    })       
+
+    });       
 });
 
 
@@ -73,46 +114,4 @@ function showCalendar (mth, yr) {
     console.log(str);
     $("#results").html(str);
     }
-
-    window.addEventListener("load", function(e){
-    var avail = document.querySelectorAll(".day")
-  
-    for(var i=0; i < avail.length; i++)
-        {
-            avail[i].addEventListener("click", function selectDay(e)
-            {            
-                if (this.style.backgroundColor == '')
-                {
-                    this.style.backgroundColor = "green";
-                }            
-                
-                else if (this.style.backgroundColor == "green")
-                {
-                    this.style.backgroundColor = "red";
-                }
-               
-                else
-                {
-                    this.style.backgroundColor = '';
-                }
-            
-            });
-        }
-        
-    document.getElementById("yes").addEventListener("click", function()
-    {
-        var obj = ".day";
-        obj.style.backgroundColor , "green";
-       // document.querySelectorAll(".day").style.backgroundColor = "green";
-        
-    })
-
-    document.getElementById("no").addEventListener("click", function() 
-    {
-        document.querySelectorAll(".day").style.backgroundColor = "red";
-    })
-        
-    });
-
-
     
