@@ -94,27 +94,28 @@
         return response.json();
 })
    .then(function(myJson) {
-	console.log((myJson));
+	//console.log((myJson));
 	
+	var dba = []
+	var dbaFirst=document.querySelector("#database-analyst-area .first");
+
+	var webdev = []
+
+	var se = []
+
 	for (i =0; i < myJson.length; i++)
 	{
-		//console.log(myJson.length);
-		//console.log(myJson.indexOf(myJson[i]));
-
 		if (myJson[i].jobTitle == "Database Analyst")
 		{
-			//console.log(myJson[i].jobTitle = "Database Analyst");
-			console.log(myJson.indexOf(myJson[i]), myJson[i].salary); 
-			
-		
-				
-			//})
-
-		}
-		
-			
+			dba.push(myJson[i]);
+			dba.sort(function(low, high) {return high.salary - low.salary});
+		}			
 	}
-	
+	console.log(dba);
+	console.log(dba[0]);
+
+	dbaFirst.innerText = dba[0].name.first;
+  
   });
 
 
