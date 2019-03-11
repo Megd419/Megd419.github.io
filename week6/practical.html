@@ -94,32 +94,127 @@
         return response.json();
 })
    .then(function(myJson) {
-	//console.log((myJson));
+	console.log(myJson);
 	
 	var dba = []
-	var dbaFirst=document.querySelector("#database-analyst-area .first");
-
 	var webdev = []
-
 	var se = []
 
+	//Find Highest Salaries
 	for (i =0; i < myJson.length; i++)
 	{
 		if (myJson[i].jobTitle == "Database Analyst")
 		{
 			dba.push(myJson[i]);
 			dba.sort(function(low, high) {return high.salary - low.salary});
-		}			
+		}
+
+		if (myJson[i].jobTitle == "Web Developer")
+		{
+			webdev.push(myJson[i]);
+			webdev.sort(function(low, high) {return high.salary - low.salary});			
+		}
+
+		if (myJson[i].jobTitle == "Software Developer")
+		{
+			se.push(myJson[i]);
+			se.sort(function(low, high) {return high.salary - low.salary});			
+		} 						
 	}
-	console.log(dba);
-	console.log(dba[0]);
 
-	dbaFirst.innerText = dba[0].name.first;
-  
+	//Calculate Average Salaries
+	var sum = 0;
+
+		for (var i = 0, l = dba.length; i < l; i++)
+		{
+			sum += parseInt(dba[i].salary, 10);
+		}
+
+	var result = sum / l;
+	var dbaAvg = result.toFixed(2);
+
+	var sum = 0;
+
+		for (var i = 0, l = webdev.length; i < l; i++)
+		{
+			sum += parseInt(webdev[i].salary, 10);
+		}
+		
+	var result = sum / l;
+	var webdevAvg = result.toFixed(2);
+
+	var sum = 0;
+
+		for (var i = 0, l = se.length; i < l; i++)
+		{
+			sum += parseInt(se[i].salary, 10);
+		}
+		
+	var result = sum / l;
+	var seAvg = result.toFixed(2);
+
+	//Display Highest Average Paid Salary in Green
+	if (dbaAvg > webdevAvg)
+	{
+		document.querySelector("#database-analyst-area .averageanalyst").style.backgroundColor = "green";
+	}
+	else if (webdevAvg > seAvg)
+	{
+		document.querySelector("#web-developer-area .average").style.backgroundColor = "green";
+	}
+	else
+	{
+		document.querySelector("#software-engineer-area .average").style.backgroundColor = "green";
+	}
+
+	document.querySelector("#database-analyst-area .first").innerText = dba[0].name.first;
+	document.querySelector("#database-analyst-area .last").innerText = dba[0].name.last;
+	document.querySelector("#database-analyst-area .analysthighest").innerText = "$" + dba[0].salary;
+	document.querySelector("#database-analyst-area .averageanalyst").innerText = "$" + dbaAvg;
+
+	document.querySelector("#web-developer-area .first").innerText = webdev[0].name.first;
+	document.querySelector("#web-developer-area .last").innerText = webdev[0].name.last;
+	document.querySelector("#web-developer-area .highest").innerText = "$" + webdev[0].salary;
+	document.querySelector("#web-developer-area .average").innerText = "$" + webdevAvg;
+
+	document.querySelector("#software-engineer-area .first").innerText = se[0].name.first;
+	document.querySelector("#software-engineer-area .last").innerText = se[0].name.last;
+	document.querySelector("#software-engineer-area .highest").innerText = "$" + se[0].salary;
+	document.querySelector("#software-engineer-area .average").innerText = "$" + seAvg;
+	
+	//Search for Salary by First and Last Name
+	var fname = document.getElementById("first-name");
+	var lname = document.getElementById("last-name");
+
+	document.getElementById("search-submit").addEventListener("click", function(){
+		for (i = 0; i < myJson.length; i++)
+		{
+			if (fname.value == myJson[i].name.first &&
+				lname.value == myJson[i].name.last)
+				{
+					document.querySelector("#search-output .output").innerHTML = "$" + myJson[i].salary;
+				}
+			else
+				document.querySelector("#search-output .output").innerHTML = "No Matches Found. Please Try Again.";
+		}
+	})
+
+	//List people and salary in each position	
+	function getInfo (item, index) {
+			var info = [item.name.first, item.name.last, "$" + item.salary, "<br>"].join(" ");
+			return info;
+		}
+
+	document.getElementById("list-database-analyst").addEventListener("click", function(){		
+		document.querySelector("#list-output .output").innerHTML = dba.map(getInfo).join('');
+	});
+
+	document.getElementById("list-web-developer").addEventListener("click", function(){	
+		document.querySelector("#list-output .output").innerHTML = webdev.map(getInfo).join('');
+	})
+
+	document.getElementById("list-software-engineer").addEventListener("click", function(){			
+			document.querySelector("#list-output .output").innerHTML = se.map(getInfo).join('');
+	})		
   });
-
-
-
-    
-
 </script>
