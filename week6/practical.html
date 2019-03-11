@@ -189,14 +189,15 @@
 	document.getElementById("search-submit").addEventListener("click", function(){
 		for (i = 0; i < myJson.length; i++)
 		{
-			if (fname.value == myJson[i].name.first &&
-				lname.value == myJson[i].name.last)
+			if ((fname.value === myJson[i].name.first) && (lname.value === myJson[i].name.last))
 				{
-					document.querySelector("#search-output .output").innerHTML = "$" + myJson[i].salary;
+				document.querySelector("#search-output .output").innerHTML = "$" + myJson[i].salary;
+				return;
 				}
-			else
-				document.querySelector("#search-output .output").innerHTML = "No Matches Found. Please Try Again.";
-		}
+
+			document.querySelector("#search-output .output").innerHTML = "No Matches Found. Please Try Again.";
+			}
+
 	})
 
 	//List people and salary in each position	
