@@ -1,0 +1,8 @@
+class BallObject
+{
+    /*constructor(a)
+    {
+
+    }
+    */
+}
